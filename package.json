@@ -1,0 +1,9 @@
+{
+  "name": "am-calc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mobile-first diamond pricing calculator for AM Solutions.",
+  "scripts": {
+    "test": "node tests/pricing.test.js"
+  }
+}
