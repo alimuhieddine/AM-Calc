@@ -8,6 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Diamond Calc" />
 <meta name="theme-color" content="#ff2b5f" />
+<link rel="manifest" href="manifest.json" />
 <style>
 :root{--pink:#ff2b5f;--line:#aaa;--hilite:rgba(255,245,0,.7)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -18,16 +19,16 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ari
 .panel{background:#f2f2f7;border-bottom:1px solid var(--line);padding:16px 12px 10px}.row{display:grid;grid-template-columns:1fr 95px;align-items:center;gap:8px;margin:4px 0 20px}.entry{font-size:30px;display:flex;align-items:center;gap:26px}.entry input{font-size:30px;width:110px;border:0;background:transparent;outline:none}.unit{font-size:18px;color:#bfc0c6;text-align:right}.diamond{font-size:38px;display:flex;align-items:center;gap:16px}.diamond input{font-size:34px;width:115px;border:0;background:transparent;outline:none}
 .toggleRow{height:42px;display:flex;align-items:center;justify-content:space-between;padding:0 2px;font-size:18px;color:#444}.switch{position:relative;display:inline-block;width:54px;height:30px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#ccc;transition:.2s;border-radius:30px}.slider:before{position:absolute;content:"";height:24px;width:24px;left:3px;bottom:3px;background:white;transition:.2s;border-radius:50%}.switch input:checked+.slider{background:#ff2b5f}.switch input:checked+.slider:before{transform:translateX(24px)}
 .pickers{display:grid;grid-template-columns:1.2fr .8fr 1.02fr 1.05fr;height:160px;border-bottom:1px solid var(--line)}.picker{border-right:1px solid var(--line);position:relative;text-align:center;overflow:hidden;background:#fff}.picker:last-child{border-right:0}.title{font-size:17px;color:#bfc0c6;margin-top:16px;text-transform:uppercase}.wheel{position:absolute;left:6px;right:6px;top:48px;height:96px;overflow-y:auto;scroll-snap-type:y proximity;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:31px 0}.wheel::-webkit-scrollbar{display:none}.wheel button{display:block;width:100%;height:31px;border:0;background:transparent;color:#bbb;font-size:17px;line-height:31px;scroll-snap-align:center;transition:font-size .12s ease,color .12s ease,background .12s ease}.wheel button.sel{font-size:24px;color:#222;background:#f4f4f8;border-radius:8px;position:relative}.wheel button.sel:before{content:"";position:absolute;left:8px;right:8px;top:6px;height:19px;background:var(--hilite);filter:blur(2px);border-radius:5px}
-.price{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);height:72px}.price>div{position:relative;padding:26px 8px 6px}.price>div:first-child{border-right:1px solid var(--line)}.label{position:absolute;top:4px;left:8px;color:#bfc0c6;font-size:12px;text-transform:uppercase}.money{display:flex;align-items:flex-end;gap:5px}.currency{font-size:24px;color:#bbb}.displayPrice{font-size:25px}.suffix{position:absolute;right:7px;bottom:3px;color:#bfc0c6;font-size:12px}.stones{border-bottom:1px solid var(--line)}.stone-row{height:53px;border-bottom:1px solid #ddd;display:grid;grid-template-columns:1fr 54px;align-items:center;padding-left:6px;color:#666;font-size:17px}.plus{width:45px;height:45px;border:0;border-radius:12px;background:#f1f0f8;font-size:30px;font-weight:700}.summary{height:118px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--pink);font-weight:800;font-size:27px;line-height:1.2;padding:10px}.brand{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#c5c5ca;font-size:20px}.menu{display:none;position:absolute;right:8px;top:85px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.15);z-index:5;overflow:hidden}.menu button{display:block;width:190px;border:0;background:white;padding:13px 14px;text-align:left;font-size:15px}.fileStatus{font-size:11px;color:#777;padding:0 14px 10px}
+.price{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);height:72px}.price>div{position:relative;padding:26px 8px 6px}.price>div:first-child{border-right:1px solid var(--line)}.label{position:absolute;top:4px;left:8px;color:#bfc0c6;font-size:12px;text-transform:uppercase}.money{display:flex;align-items:flex-end;gap:5px}.currency{font-size:24px;color:#bbb}.displayPrice{font-size:25px}.suffix{position:absolute;right:7px;bottom:3px;color:#bfc0c6;font-size:12px}.stones{border-bottom:1px solid var(--line)}.stone-row{height:53px;border-bottom:1px solid #ddd;display:grid;grid-template-columns:1fr 54px;align-items:center;padding-left:6px;color:#666;font-size:17px}.plus{width:45px;height:45px;border:0;border-radius:12px;background:#f1f0f8;font-size:30px;font-weight:700}.summary{height:118px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--pink);font-weight:800;font-size:27px;line-height:1.2;padding:10px}.brand{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:#c5c5ca;font-size:20px}.menu{display:none;position:absolute;right:8px;top:85px;background:#fff;border:1px solid #ddd;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.15);z-index:5;overflow:hidden}.menu button{display:block;width:190px;border:0;background:white;padding:13px 14px;text-align:left;font-size:15px}.fileStatus{font-size:11px;color:#777;padding:0 14px 10px}.fileStatus.ok{color:#2c8a3f}.fileStatus.error{color:#c92b2b}.fileInput{display:none}
 </style>
 </head>
 <body>
 <div class="app">
-<div class="top">CALCULATOR <button class="hamb" id="menuBtn"><span></span><span></span><span></span></button></div>
-<div class="menu" id="menu"><button id="roundList">Round List</button><div class="fileStatus" id="roundStatus"></div><button id="pearList">Pear List</button><div class="fileStatus" id="pearStatus"></div></div>
-<section class="panel"><div class="row"><div class="entry">Enter RW: <input id="rw" type="number" step="0.01" value="0"></div><div class="unit">CARAT</div></div><div class="row" style="margin-bottom:0"><div class="diamond">💎 <input id="carat" type="number" step="0.01" value="1.01"></div><div class="unit">CARAT</div></div><div class="toggleRow"><span>10 ct pricing</span><label class="switch"><input id="tenCtPricing" type="checkbox"><span class="slider"></span></label></div></section>
+<div class="top">CALCULATOR <button class="hamb" id="menuBtn" aria-label="Price list menu"><span></span><span></span><span></span></button></div>
+<div class="menu" id="menu"><button id="roundList">Round List</button><div class="fileStatus" id="roundStatus"></div><button id="pearList">Other Shapes List</button><div class="fileStatus" id="pearStatus"></div><input class="fileInput" id="roundFile" type="file" accept=".csv,text/csv"><input class="fileInput" id="pearFile" type="file" accept=".csv,text/csv"></div>
+<section class="panel"><div class="row"><div class="entry">Enter RW: <input id="rw" type="number" step="0.01" value="0"></div><div class="unit">CARAT</div></div><div class="row" style="margin-bottom:0"><div class="diamond">&#128142; <input id="carat" type="number" step="0.01" value="1.01"></div><div class="unit">CARAT</div></div><div class="toggleRow"><span>10 ct pricing</span><label class="switch"><input id="tenCtPricing" type="checkbox"><span class="slider"></span></label></div></section>
 <section class="pickers" id="pickers"></section>
-<section class="price"><div><span class="label">Your Price</span><div class="money"><span class="currency">$</span><span id="ppc" class="displayPrice">—</span></div><span class="suffix">/CT</span></div><div><div class="money"><span class="currency">$</span><span id="ttl">0</span></div><span class="suffix">TTL</span></div></section>
+<section class="price"><div><span class="label">Your Price</span><div class="money"><span class="currency">$</span><span id="ppc" class="displayPrice">-</span></div><span class="suffix">/CT</span></div><div><div class="money"><span class="currency">$</span><span id="ttl">0</span></div><span class="suffix">TTL</span></div></section>
 <section class="stones" id="stones"></section><section class="summary" id="summary"></section><div class="brand">AM Solutions</div></div>
 <script>
 const options={shape:['Round','Cushion','Oval','Pear','Emerald','Heart','Marquise','Radiant','Asscher','Other'],color:['D','E','F','G','H','I','J','K','L','M'],clarity:['IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1','I2','I3'],rap:Array.from({length:401},(_,i)=>(100-i*0.5).toFixed(1).replace('.0',''))};
@@ -36,54 +37,26 @@ const $=id=>document.getElementById(id);
 function fmt(n){n=Number(n||0);return n.toLocaleString(undefined,{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});}
 function fmtMoney(n){return fmt(n).replace(/,/g,' ')}
 function normalize(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
-function markWheel(wheel,key){
-const arr=options[key];
-const i=Math.max(0,Math.min(arr.length-1,Math.round(wheel.scrollTop/31)));
-const val=arr[i];
-[...wheel.children].forEach((b,idx)=>b.classList.toggle('sel',idx===i));
-if(val&&state[key]!==val){state[key]=val;updatePriceFromList();calc();}
-}
-function renderPickers(){
-const wrap=$('pickers');
-wrap.innerHTML='';
-for(const key of ['shape','color','clarity','rap']){
-const box=document.createElement('div');
-box.className='picker';
-box.innerHTML=`<div class="title">${key==='rap'?'%RAP':key}</div><div class="wheel"></div>`;
-const wheel=box.querySelector('.wheel');
-const arr=options[key];
-arr.forEach((v,idx)=>{
-const b=document.createElement('button');
-b.innerHTML=`<span>${v}</span>`;
-if(v===state[key]) b.className='sel';
-b.onclick=()=>{
-state[key]=v;
-[...wheel.children].forEach((btn,i)=>btn.classList.toggle('sel',i===idx));
-wheel.scrollTo({top:idx*31,behavior:'smooth'});
-updatePriceFromList();
-calc();
-};
-wheel.appendChild(b);
-});
-wrap.appendChild(box);
-requestAnimationFrame(()=>{wheel.scrollTop=Math.max(0,arr.indexOf(state[key]))*31;});
-let t;
-wheel.addEventListener('scroll',()=>{clearTimeout(t);t=setTimeout(()=>markWheel(wheel,key),90);},{passive:true});
-}
-}
+function markWheel(wheel,key){const arr=options[key];const i=Math.max(0,Math.min(arr.length-1,Math.round(wheel.scrollTop/31)));const val=arr[i];[...wheel.children].forEach((b,idx)=>b.classList.toggle('sel',idx===i));if(val&&state[key]!==val){state[key]=val;updatePriceFromList();calc();}}
+function renderPickers(){const wrap=$('pickers');wrap.innerHTML='';for(const key of ['shape','color','clarity','rap']){const box=document.createElement('div');box.className='picker';box.innerHTML=`<div class="title">${key==='rap'?'%RAP':key}</div><div class="wheel"></div>`;const wheel=box.querySelector('.wheel');const arr=options[key];arr.forEach((v,idx)=>{const b=document.createElement('button');b.innerHTML=`<span>${v}</span>`;if(v===state[key])b.className='sel';b.onclick=()=>{state[key]=v;[...wheel.children].forEach((btn,i)=>btn.classList.toggle('sel',i===idx));wheel.scrollTo({top:idx*31,behavior:'smooth'});updatePriceFromList();calc();};wheel.appendChild(b);});wrap.appendChild(box);requestAnimationFrame(()=>{wheel.scrollTop=Math.max(0,arr.indexOf(state[key]))*31;});let t;wheel.addEventListener('scroll',()=>{clearTimeout(t);t=setTimeout(()=>markWheel(wheel,key),90);},{passive:true});}}
 function csvParse(text){const rows=[];let row=[],cell='',q=false;for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];if(c==='"'&&q&&n==='"'){cell+='"';i++;}else if(c==='"'){q=!q;}else if(c===','&&!q){row.push(cell.trim());cell='';}else if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(cell.trim());if(row.some(x=>x!==''))rows.push(row);row=[];cell='';}else cell+=c;}row.push(cell.trim());if(row.some(x=>x!==''))rows.push(row);return rows;}
 function parseList(text,name){return {name,rows:csvParse(text)};}
-async function autoLoadDefaultCSVs(){try{const r=await fetch('./CSV2_ROUND_8_4.csv',{cache:'no-store'});if(r.ok){const t=await r.text();state.lists.round=parseList(t,'CSV2_ROUND_8_4.csv');$('roundStatus').textContent='Loaded: CSV2_ROUND_8_4.csv';}}catch(e){}try{const r=await fetch('./CSV2_PEAR_8_4.csv',{cache:'no-store'});if(r.ok){const t=await r.text();state.lists.pear=parseList(t,'CSV2_PEAR_8_4.csv');$('pearStatus').textContent='Loaded: CSV2_PEAR_8_4.csv';}}catch(e){}updatePriceFromList();calc();}
+function setFileStatus(kind,msg,isError){const el=$(kind==='round'?'roundStatus':'pearStatus');el.textContent=msg;el.className=`fileStatus ${isError?'error':'ok'}`;}
+function validatePriceList(list,expectedCode){const bad=[];list.rows.forEach((row,i)=>{if(row.length<6||normalize(row[0])!==normalize(expectedCode))bad.push(i+1);});return bad;}
+function setPriceListFromText(kind,text,name){const expectedCode=kind==='round'?'BR':'PS';const list=parseList(text,name);const bad=validatePriceList(list,expectedCode);if(!list.rows.length){setFileStatus(kind,'No rows found',true);alert('The selected price list is empty.');return false;}if(bad.length){const label=kind==='round'?'Round':'Other shapes';const sample=bad.slice(0,5).join(', ');setFileStatus(kind,`Rejected: expected ${expectedCode} in column 1`,true);alert(`${label} price list rejected. Column 1 must be ${expectedCode} in every row. Check row${bad.length===1?'':'s'} ${sample}${bad.length>5?'...':''}.`);return false;}state.lists[kind]=list;setFileStatus(kind,`Loaded: ${name}`,false);updatePriceFromList();calc();return true;}
+function choosePriceList(kind){const input=$(kind==='round'?'roundFile':'pearFile');input.value='';input.click();}
+function readSelectedPriceList(kind,input){const file=input.files&&input.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>setPriceListFromText(kind,String(reader.result||''),file.name);reader.onerror=()=>setFileStatus(kind,'Could not read file',true);reader.readAsText(file);}
+async function autoLoadDefaultCSVs(){try{const r=await fetch('./CSV2_ROUND_8_4.csv',{cache:'no-store'});if(r.ok){const t=await r.text();setPriceListFromText('round',t,'CSV2_ROUND_8_4.csv');}}catch(e){setFileStatus('round','Default round list not found',true);}try{const r=await fetch('./CSV2_PEAR_8_4.csv',{cache:'no-store'});if(r.ok){const t=await r.text();setPriceListFromText('pear',t,'CSV2_PEAR_8_4.csv');}}catch(e){setFileStatus('pear','Default other-shapes list not found',true);}updatePriceFromList();calc();}
 function currentList(){return state.shape==='Round'?state.lists.round:state.lists.pear;}
 function effectiveCtForPricing(ct){const tenOn=$('tenCtPricing')&&$('tenCtPricing').checked;if(!tenOn&&ct>=5)return 5;if(tenOn&&ct>=10)return 10;if(ct>=5)return 5;return ct;}
 function rowMatchesPricingRange(row,ct){const from=parseFloat(row[3]);const to=parseFloat(row[4]);if(isNaN(from)||isNaN(to))return false;const pricingCt=effectiveCtForPricing(ct);if(pricingCt>=from&&pricingCt<=to)return true;if(pricingCt===5&&from>=5&&from<6)return true;if(pricingCt===10&&from>=10&&from<11)return true;return false;}
-function updatePriceFromList(){const list=currentList();if(!list){$('ppc').dataset.value='0';$('ppc').textContent='—';calc();return;}const ct=parseFloat($('carat').value)||0;let found=false;for(const row of list.rows){if(rowMatchesPricingRange(row,ct)&&normalize(row[2])===normalize(state.color)&&normalize(row[1])===normalize(state.clarity)){const price=parseFloat(String(row[5]||'').replace(/[^0-9.\-]/g,''));if(!isNaN(price)){$('ppc').dataset.value=price;$('ppc').textContent=fmt(price);found=true;break;}}}if(!found){$('ppc').dataset.value='0';$('ppc').textContent='—';}calc();}
+function updatePriceFromList(){const list=currentList();if(!list){$('ppc').dataset.value='0';$('ppc').textContent='-';calc();return;}const ct=parseFloat($('carat').value)||0;let found=false;for(const row of list.rows){if(rowMatchesPricingRange(row,ct)&&normalize(row[2])===normalize(state.color)&&normalize(row[1])===normalize(state.clarity)){const price=parseFloat(String(row[5]||'').replace(/[^0-9.\-]/g,''));if(!isNaN(price)){$('ppc').dataset.value=price;$('ppc').textContent=fmt(price);found=true;break;}}}if(!found){$('ppc').dataset.value='0';$('ppc').textContent='-';}calc();}
 function getPpc(){return parseFloat($('ppc').dataset.value||0);}
 function currentStone(){const ct=parseFloat($('carat').value)||0;const ppc=getPpc();const rap=parseFloat(state.rap)||0;const ttl=ct*ppc*(1+rap/100);return {shape:state.shape,carat:ct,color:state.color,clarity:state.clarity,rap:rap,ttl:ttl};}
 function stoneLine(x){return `${x.shape} ${x.carat.toFixed(2)} ${x.color} ${x.clarity} ${fmt(x.rap)}% $${fmtMoney(x.ttl)}`;}
 function renderStones(){const wrap=$('stones');wrap.innerHTML='';for(let i=0;i<4;i++){const hasStone=!!state.stones[i];const row=document.createElement('div');row.className='stone-row';row.innerHTML=`<span>${hasStone?stoneLine(state.stones[i]):'Add Stone ...'}</span><button class="plus">${hasStone?'-':'+'}</button>`;row.querySelector('button').onclick=()=>{if(state.stones[i]){state.stones[i]=null;renderStones();calc();return;}const x=currentStone();if(x.carat>0&&x.ttl>0){state.stones[i]=x;renderStones();calc();}};wrap.appendChild(row);}}
 function calc(){const ct=parseFloat($('carat').value)||0;const ppc=getPpc();const rap=parseFloat(state.rap)||0;const ttl=ct*ppc*(1+rap/100);$('ttl').textContent=fmtMoney(ttl);const total=state.stones.reduce((s,x)=>s+(x?x.ttl:0),0);const rw=parseFloat($('rw').value)||0;if(rw>0){$('summary').innerHTML=`Total: $ ${fmtMoney(total)}<br>RW: ${fmt(rw)} CT PPC: ${fmt(total/rw)} $/CT`;}else{$('summary').innerHTML=`Total: $ ${fmtMoney(total)}<br>RW: 0 CT PPC: 0 $/CT`;}}
-$('carat').addEventListener('input',()=>{updatePriceFromList();});$('rw').addEventListener('input',calc);$('tenCtPricing').addEventListener('change',()=>{updatePriceFromList();calc();});$('menuBtn').onclick=()=>{$('menu').style.display=$('menu').style.display==='block'?'none':'block';};renderPickers();renderStones();autoLoadDefaultCSVs();
+$('carat').addEventListener('input',()=>{updatePriceFromList();});$('rw').addEventListener('input',calc);$('tenCtPricing').addEventListener('change',()=>{updatePriceFromList();calc();});$('menuBtn').onclick=()=>{$('menu').style.display=$('menu').style.display==='block'?'none':'block';};$('roundList').onclick=()=>choosePriceList('round');$('pearList').onclick=()=>choosePriceList('pear');$('roundFile').addEventListener('change',e=>readSelectedPriceList('round',e.target));$('pearFile').addEventListener('change',e=>readSelectedPriceList('pear',e.target));if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}renderPickers();renderStones();autoLoadDefaultCSVs();
 </script>
 </body>
 </html>
